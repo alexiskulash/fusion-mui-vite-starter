@@ -6,7 +6,8 @@ import theme from "./theme";
 import Layout from "./components/mui/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Placeholder from "./pages/Placeholder";
+import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -15,7 +16,8 @@ const App = () => (
       <Layout>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/placeholder/:page" element={<Placeholder />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

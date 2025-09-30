@@ -67,8 +67,8 @@ export default function Layout({ children }: LayoutProps) {
 
   const navItems = [
     { label: "Dashboard", to: "/", icon: <DashboardIcon /> },
-    { label: "Reports", to: "/placeholder/reports", icon: <BarChartIcon /> },
-    { label: "Settings", to: "/placeholder/settings", icon: <SettingsIcon /> },
+    { label: "Reports", to: "/reports", icon: <BarChartIcon /> },
+    { label: "Settings", to: "/settings", icon: <SettingsIcon /> },
   ];
 
   return (
