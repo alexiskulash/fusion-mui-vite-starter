@@ -86,14 +86,14 @@ export default function Layout({ children }: LayoutProps) {
       </AppBar>
 
       <Drawer
-        variant="permanent"
+        variant="persistent"
         sx={{
           width: drawerWidth,
           flexShrink: 0,
           [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
           display: { xs: "none", md: "block" },
         }}
-        open
+        open={open}
       >
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
