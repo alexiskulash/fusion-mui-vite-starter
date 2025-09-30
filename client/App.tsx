@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => (
   <ThemeProvider theme={theme}>
