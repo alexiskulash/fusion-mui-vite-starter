@@ -1,5 +1,24 @@
 import * as React from "react";
-import { Box, Grid, Paper, Typography, Stack, Button, Chip, Avatar, LinearProgress, List, ListItem, ListItemAvatar, ListItemText, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Paper,
+  Typography,
+  Stack,
+  Button,
+  Chip,
+  Avatar,
+  LinearProgress,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 export default function Index() {
   const stats = [
@@ -24,16 +43,26 @@ export default function Index() {
 
   return (
     <Box>
-      <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>Dashboard</Typography>
+      <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
+        Dashboard
+      </Typography>
 
       <Grid container spacing={3}>
         {stats.map((s) => (
           <Grid item xs={12} sm={6} md={3} key={s.label}>
             <Paper sx={{ p: 2 }}>
-              <Stack direction="row" justifyContent="space-between" alignItems="center">
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
                 <Box>
-                  <Typography variant="body2" color="text.secondary">{s.label}</Typography>
-                  <Typography variant="h5" sx={{ mt: 0.5 }}>{s.value}</Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {s.label}
+                  </Typography>
+                  <Typography variant="h5" sx={{ mt: 0.5 }}>
+                    {s.value}
+                  </Typography>
                 </Box>
                 <Chip color="primary" label={s.delta} size="small" />
               </Stack>
@@ -43,9 +72,16 @@ export default function Index() {
 
         <Grid item xs={12} md={8}>
           <Paper sx={{ p: 2, height: "100%" }}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 2 }}
+            >
               <Typography variant="h6">Recent Orders</Typography>
-              <Button variant="contained" color="primary">Export</Button>
+              <Button variant="contained" color="primary">
+                Export
+              </Button>
             </Stack>
             <Table size="small">
               <TableHead>
@@ -61,9 +97,21 @@ export default function Index() {
                   <TableRow key={r.id} hover>
                     <TableCell>{r.id}</TableCell>
                     <TableCell>{r.customer}</TableCell>
-                    <TableCell align="right">${r.amount.toLocaleString()}</TableCell>
+                    <TableCell align="right">
+                      ${r.amount.toLocaleString()}
+                    </TableCell>
                     <TableCell>
-                      <Chip size="small" color={r.status === "Paid" ? "success" : r.status === "Pending" ? "warning" : "error"} label={r.status} />
+                      <Chip
+                        size="small"
+                        color={
+                          r.status === "Paid"
+                            ? "success"
+                            : r.status === "Pending"
+                              ? "warning"
+                              : "error"
+                        }
+                        label={r.status}
+                      />
                     </TableCell>
                   </TableRow>
                 ))}
@@ -74,14 +122,19 @@ export default function Index() {
 
         <Grid item xs={12} md={4}>
           <Paper sx={{ p: 2, height: "100%" }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>Team Activity</Typography>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              Team Activity
+            </Typography>
             <List>
               {["Alex", "Jamie", "Taylor", "Chris"].map((name, i) => (
                 <ListItem key={name} disableGutters>
                   <ListItemAvatar>
                     <Avatar>{name[0]}</Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={`${name} updated a task`} secondary={`${Math.floor(Math.random()*59)+1} min ago`} />
+                  <ListItemText
+                    primary={`${name} updated a task`}
+                    secondary={`${Math.floor(Math.random() * 59) + 1} min ago`}
+                  />
                 </ListItem>
               ))}
             </List>
@@ -90,13 +143,21 @@ export default function Index() {
 
         <Grid item xs={12} md={6}>
           <Paper sx={{ p: 2, height: "100%" }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>Project Progress</Typography>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              Project Progress
+            </Typography>
             <Stack spacing={2}>
               {tasks.map((t) => (
                 <Box key={t.title}>
-                  <Stack direction="row" justifyContent="space-between" sx={{ mb: 0.5 }}>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    sx={{ mb: 0.5 }}
+                  >
                     <Typography variant="body2">{t.title}</Typography>
-                    <Typography variant="caption" color="text.secondary">{t.progress}%</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {t.progress}%
+                    </Typography>
                   </Stack>
                   <LinearProgress variant="determinate" value={t.progress} />
                 </Box>
@@ -106,7 +167,15 @@ export default function Index() {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 2, height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Paper
+            sx={{
+              p: 2,
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Stack spacing={2} alignItems="center">
               <Typography variant="h6">Welcome back</Typography>
               <Typography variant="body2" color="text.secondary" align="center">

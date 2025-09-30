@@ -10,12 +10,23 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <Box sx={{ minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Box
+      sx={{
+        minHeight: "80vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Paper sx={{ p: 4 }}>
         <Stack spacing={2} alignItems="center">
-          <Typography variant="h3" fontWeight={700}>404</Typography>
+          <Typography variant="h3" fontWeight={700}>
+            404
+          </Typography>
           <Typography color="text.secondary">Page not found</Typography>
-          <Button variant="contained" component={RouterLink} to="/">Back to dashboard</Button>
+          <Button variant="contained" component={RouterLink} to="/">
+            Back to dashboard
+          </Button>
         </Stack>
       </Paper>
     </Box>

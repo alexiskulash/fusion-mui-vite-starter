@@ -1,6 +1,19 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import { AppBar as MuiAppBar, Toolbar, Typography, IconButton, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Box, Divider, CssBaseline } from "@mui/material";
+import {
+  AppBar as MuiAppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Box,
+  Divider,
+  CssBaseline,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import BarChartIcon from "@mui/icons-material/BarChart";
@@ -72,11 +85,23 @@ export default function Layout({ children }: LayoutProps) {
   ];
 
   return (
-    <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
+    <Box
+      sx={{
+        display: "flex",
+        minHeight: "100vh",
+        bgcolor: "background.default",
+      }}
+    >
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <IconButton color="inherit" edge="start" onClick={toggleDrawer} sx={{ mr: 2 }} aria-label="menu">
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={toggleDrawer}
+            sx={{ mr: 2 }}
+            aria-label="menu"
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
@@ -90,7 +115,10 @@ export default function Layout({ children }: LayoutProps) {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: "border-box" },
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
           display: { xs: "none", md: "block" },
         }}
         open={open}
@@ -119,7 +147,10 @@ export default function Layout({ children }: LayoutProps) {
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
         ModalProps={{ keepMounted: true }}
-        sx={{ display: { xs: "block", md: "none" }, [`& .MuiDrawer-paper`]: { width: drawerWidth } }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          [`& .MuiDrawer-paper`]: { width: drawerWidth },
+        }}
       >
         <Toolbar />
         <List>

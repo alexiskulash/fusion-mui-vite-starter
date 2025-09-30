@@ -1,5 +1,18 @@
 import * as React from "react";
-import { Box, Typography, Paper, Tabs, Tab, Stack, Table, TableBody, TableCell, TableHead, TableRow, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Paper,
+  Tabs,
+  Tab,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Button,
+} from "@mui/material";
 
 export default function Reports() {
   const [tab, setTab] = React.useState(0);
@@ -11,9 +24,16 @@ export default function Reports() {
 
   return (
     <Box>
-      <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>Reports</Typography>
+      <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
+        Reports
+      </Typography>
       <Paper sx={{ mb: 3 }}>
-        <Tabs value={tab} onChange={(_, v) => setTab(v)} aria-label="report tabs" variant="scrollable">
+        <Tabs
+          value={tab}
+          onChange={(_, v) => setTab(v)}
+          aria-label="report tabs"
+          variant="scrollable"
+        >
           <Tab label="Overview" />
           <Tab label="Details" />
           <Tab label="Exports" />
@@ -22,7 +42,9 @@ export default function Reports() {
 
       {tab === 0 && (
         <Paper sx={{ p: 2 }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>Monthly Performance</Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Monthly Performance
+          </Typography>
           <Table size="small">
             <TableHead>
               <TableRow>
@@ -35,8 +57,12 @@ export default function Reports() {
               {data.map((r) => (
                 <TableRow key={r.month} hover>
                   <TableCell>{r.month}</TableCell>
-                  <TableCell align="right">{r.users.toLocaleString()}</TableCell>
-                  <TableCell align="right">${r.revenue.toLocaleString()}</TableCell>
+                  <TableCell align="right">
+                    {r.users.toLocaleString()}
+                  </TableCell>
+                  <TableCell align="right">
+                    ${r.revenue.toLocaleString()}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -48,7 +74,10 @@ export default function Reports() {
         <Paper sx={{ p: 2 }}>
           <Stack spacing={1}>
             <Typography variant="h6">Details</Typography>
-            <Typography color="text.secondary">Drill into specific metrics and segments. Use this page as a reference for composing complex views with MUI components.</Typography>
+            <Typography color="text.secondary">
+              Drill into specific metrics and segments. Use this page as a
+              reference for composing complex views with MUI components.
+            </Typography>
           </Stack>
         </Paper>
       )}
