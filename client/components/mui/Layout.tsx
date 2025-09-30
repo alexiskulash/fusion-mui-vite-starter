@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Box,
   CssBaseline,
   Container,
   IconButton,
@@ -13,6 +12,7 @@ import {
   MenuItem,
   Badge,
 } from "@mui/material";
+import { Box } from "@mui/system";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
 interface LayoutProps {
