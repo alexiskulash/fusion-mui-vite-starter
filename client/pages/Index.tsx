@@ -1,5 +1,13 @@
 import * as React from "react";
-import { Box, Paper, Stack, Typography, LinearProgress, CircularProgress, Button } from "@mui/material";
+import {
+  Box,
+  Paper,
+  Stack,
+  Typography,
+  LinearProgress,
+  CircularProgress,
+  Button,
+} from "@mui/material";
 
 export default function Index() {
   const messages = [
@@ -28,17 +36,32 @@ export default function Index() {
   }, []);
 
   return (
-    <Box sx={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Box
+      sx={{
+        minHeight: "60vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Paper sx={{ p: 4, maxWidth: 560, width: "100%" }}>
         <Stack spacing={3} alignItems="center">
           <CircularProgress color="primary" size={56} thickness={4} />
           <Stack spacing={0.5} alignItems="center" sx={{ width: "100%" }}>
-            <Typography variant="h5" fontWeight={700}>Preparing your app…</Typography>
-            <Typography color="text.secondary" align="center">{messages[msgIndex]}</Typography>
+            <Typography variant="h5" fontWeight={700}>
+              Preparing your app…
+            </Typography>
+            <Typography color="text.secondary" align="center">
+              {messages[msgIndex]}
+            </Typography>
           </Stack>
           <Box sx={{ width: "100%" }}>
             <LinearProgress variant="determinate" value={progress} />
-            <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+            <Typography
+              variant="caption"
+              color="text.secondary"
+              sx={{ display: "block", mt: 0.5 }}
+            >
               {Math.min(99, progress)}%
             </Typography>
           </Box>
@@ -46,9 +69,15 @@ export default function Index() {
             You can keep this tab open while we generate your project.
           </Typography>
           <Stack direction="row" spacing={1}>
-            <Button size="small" href="/dashboard" variant="outlined">View sample dashboard</Button>
-            <Button size="small" href="/reports" variant="text">Reports</Button>
-            <Button size="small" href="/settings" variant="text">Settings</Button>
+            <Button size="small" href="/dashboard" variant="outlined">
+              View sample dashboard
+            </Button>
+            <Button size="small" href="/reports" variant="text">
+              Reports
+            </Button>
+            <Button size="small" href="/settings" variant="text">
+              Settings
+            </Button>
           </Stack>
         </Stack>
       </Paper>

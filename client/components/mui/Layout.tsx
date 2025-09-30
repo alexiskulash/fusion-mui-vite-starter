@@ -20,7 +20,9 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null,
+  );
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -28,18 +30,33 @@ export default function Layout({ children }: LayoutProps) {
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
   return (
-    <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
+    <Box
+      sx={{
+        display: "flex",
+        minHeight: "100vh",
+        bgcolor: "background.default",
+      }}
+    >
       <CssBaseline />
       <AppBar position="fixed">
         <Toolbar disableGutters>
-          <Container maxWidth="lg" sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Container
+            maxWidth="lg"
+            sx={{ display: "flex", alignItems: "center", gap: 2 }}
+          >
             <Typography variant="h6" noWrap sx={{ flexShrink: 0 }}>
               Aurora Dashboard
             </Typography>
 
-            <Box sx={{ ml: "auto", display: "flex", alignItems: "center", gap: 1 }}>
+            <Box
+              sx={{ ml: "auto", display: "flex", alignItems: "center", gap: 1 }}
+            >
               <Tooltip title="Notifications">
-                <IconButton size="large" color="inherit" aria-label="Open notifications">
+                <IconButton
+                  size="large"
+                  color="inherit"
+                  aria-label="Open notifications"
+                >
                   <Badge color="error" variant="dot">
                     <NotificationsIcon />
                   </Badge>
