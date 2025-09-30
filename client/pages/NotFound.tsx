@@ -1,6 +1,7 @@
 import { useLocation, Link as RouterLink } from "react-router-dom";
 import * as React from "react";
-import { Box, Paper, Stack, Typography, Button } from "@mui/material";
+import { Box } from "@mui/system";
+import { Paper, Stack, Typography, Button } from "@mui/material";
 
 const NotFound = () => {
   const location = useLocation();
