@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Box, Typography, Paper, Stack, Button } from "@mui/material";
+import { Box } from "@mui/system";
+import { Typography, Paper, Stack, Button } from "@mui/material";
 import { useParams, Link as RouterLink } from "react-router-dom";
 
 export default function Placeholder() {
