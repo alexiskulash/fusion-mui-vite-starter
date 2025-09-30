@@ -1,194 +1,57 @@
 import * as React from "react";
-import {
-  Box,
-  Grid,
-  Paper,
-  Typography,
-  Stack,
-  Button,
-  Chip,
-  Avatar,
-  LinearProgress,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import { Box, Paper, Stack, Typography, LinearProgress, CircularProgress, Button } from "@mui/material";
 
 export default function Index() {
-  const stats = [
-    { label: "Active Users", value: "12,834", delta: "+8.2%" },
-    { label: "Sessions", value: "48,210", delta: "+3.1%" },
-    { label: "Revenue", value: "$128,430", delta: "+12.4%" },
-    { label: "Conversion", value: "3.2%", delta: "+0.4%" },
+  const messages = [
+    "Initializing project",
+    "Installing dependencies",
+    "Scaffolding pages",
+    "Configuring theme",
+    "Optimizing assets",
+    "Finalizing setup",
   ];
 
-  const tasks = [
-    { title: "Prepare Q4 report", progress: 72 },
-    { title: "Refactor auth flow", progress: 45 },
-    { title: "Migrate billing", progress: 20 },
-  ];
+  const [progress, setProgress] = React.useState(0);
+  const [msgIndex, setMsgIndex] = React.useState(0);
 
-  const rows = [
-    { id: "#10293", customer: "Acme Inc.", amount: 1840, status: "Paid" },
-    { id: "#10292", customer: "Globex", amount: 920, status: "Pending" },
-    { id: "#10291", customer: "Soylent", amount: 2350, status: "Paid" },
-    { id: "#10290", customer: "Initech", amount: 660, status: "Failed" },
-  ];
+  React.useEffect(() => {
+    const p = setInterval(() => {
+      setProgress((v) => (v >= 100 ? 0 : v + 2));
+    }, 60);
+    const m = setInterval(() => {
+      setMsgIndex((i) => (i + 1) % messages.length);
+    }, 1200);
+    return () => {
+      clearInterval(p);
+      clearInterval(m);
+    };
+  }, []);
 
   return (
-    <Box>
-      <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
-        Dashboard
-      </Typography>
-
-      <Grid container spacing={3}>
-        {stats.map((s) => (
-          <Grid item xs={12} sm={6} md={3} key={s.label}>
-            <Paper sx={{ p: 2 }}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box>
-                  <Typography variant="body2" color="text.secondary">
-                    {s.label}
-                  </Typography>
-                  <Typography variant="h5" sx={{ mt: 0.5 }}>
-                    {s.value}
-                  </Typography>
-                </Box>
-                <Chip color="primary" label={s.delta} size="small" />
-              </Stack>
-            </Paper>
-          </Grid>
-        ))}
-
-        <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 2, height: "100%" }}>
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              sx={{ mb: 2 }}
-            >
-              <Typography variant="h6">Recent Orders</Typography>
-              <Button variant="contained" color="primary">
-                Export
-              </Button>
-            </Stack>
-            <Table size="small">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Order</TableCell>
-                  <TableCell>Customer</TableCell>
-                  <TableCell align="right">Amount</TableCell>
-                  <TableCell>Status</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((r) => (
-                  <TableRow key={r.id} hover>
-                    <TableCell>{r.id}</TableCell>
-                    <TableCell>{r.customer}</TableCell>
-                    <TableCell align="right">
-                      ${r.amount.toLocaleString()}
-                    </TableCell>
-                    <TableCell>
-                      <Chip
-                        size="small"
-                        color={
-                          r.status === "Paid"
-                            ? "success"
-                            : r.status === "Pending"
-                              ? "warning"
-                              : "error"
-                        }
-                        label={r.status}
-                      />
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={4}>
-          <Paper sx={{ p: 2, height: "100%" }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              Team Activity
+    <Box sx={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <Paper sx={{ p: 4, maxWidth: 560, width: "100%" }}>
+        <Stack spacing={3} alignItems="center">
+          <CircularProgress color="primary" size={56} thickness={4} />
+          <Stack spacing={0.5} alignItems="center" sx={{ width: "100%" }}>
+            <Typography variant="h5" fontWeight={700}>Preparing your app…</Typography>
+            <Typography color="text.secondary" align="center">{messages[msgIndex]}</Typography>
+          </Stack>
+          <Box sx={{ width: "100%" }}>
+            <LinearProgress variant="determinate" value={progress} />
+            <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+              {Math.min(99, progress)}%
             </Typography>
-            <List>
-              {["Alex", "Jamie", "Taylor", "Chris"].map((name, i) => (
-                <ListItem key={name} disableGutters>
-                  <ListItemAvatar>
-                    <Avatar>{name[0]}</Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={`${name} updated a task`}
-                    secondary={`${Math.floor(Math.random() * 59) + 1} min ago`}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 2, height: "100%" }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              Project Progress
-            </Typography>
-            <Stack spacing={2}>
-              {tasks.map((t) => (
-                <Box key={t.title}>
-                  <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    sx={{ mb: 0.5 }}
-                  >
-                    <Typography variant="body2">{t.title}</Typography>
-                    <Typography variant="caption" color="text.secondary">
-                      {t.progress}%
-                    </Typography>
-                  </Stack>
-                  <LinearProgress variant="determinate" value={t.progress} />
-                </Box>
-              ))}
-            </Stack>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <Paper
-            sx={{
-              p: 2,
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Stack spacing={2} alignItems="center">
-              <Typography variant="h6">Welcome back</Typography>
-              <Typography variant="body2" color="text.secondary" align="center">
-                Here is a quick overview of your product performance today.
-              </Typography>
-              <Stack direction="row" spacing={2}>
-                <Button variant="contained">Create report</Button>
-                <Button variant="outlined">View details</Button>
-              </Stack>
-            </Stack>
-          </Paper>
-        </Grid>
-      </Grid>
+          </Box>
+          <Typography variant="caption" color="text.secondary" align="center">
+            You can keep this tab open while we generate your project.
+          </Typography>
+          <Stack direction="row" spacing={1}>
+            <Button size="small" href="/dashboard" variant="outlined">View sample dashboard</Button>
+            <Button size="small" href="/reports" variant="text">Reports</Button>
+            <Button size="small" href="/settings" variant="text">Settings</Button>
+          </Stack>
+        </Stack>
+      </Paper>
     </Box>
   );
 }
