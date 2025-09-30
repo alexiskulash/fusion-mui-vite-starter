@@ -1,6 +1,13 @@
 import * as React from "react";
 import { Box } from "@mui/system";
-import { Paper, Stack, Typography, LinearProgress, CircularProgress, Button } from "@mui/material";
+import {
+  Paper,
+  Stack,
+  Typography,
+  LinearProgress,
+  CircularProgress,
+  Button,
+} from "@mui/material";
 
 export default function Index() {
   const messages = [
